@@ -1,0 +1,156 @@
+.job {
+    background-color: var(--section-color);
+    /* margin-bottom: 25px; */
+    border-radius: 1rem;
+    width: 75%;
+    border-bottom: 1px solid var(--primary-light-color);
+    margin: 100px auto;
+    max-width: 500px;
+}
+.job .job-holder {
+    padding: 0 20px;
+    display: block;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 1px 0px;
+    position: relative;
+}
+.job .img {
+    width: 60px;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+}
+.job .img img {
+    width: 100%;
+}
+.job .title {
+    margin-top: -25px;
+    text-align: center;
+}
+.job .title h4 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-size: 36px;
+}
+.job .company {
+    display: flex;
+    margin: 15px 0;
+    gap: 15px;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.job .company span {
+    font-size: 14px;
+    color: var(--primary-mid-color);
+}
+.description {
+    text-align: center;
+}
+.job .company span {
+    font-size: 14px;
+    color: var(--primary-mid-color);
+}
+.contact {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin: 20px 0;
+    font-weight: 600;
+    flex-direction: column;
+    gap: 10px;
+}
+.contact div span {
+    font-weight: normal;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.job .time {
+    padding: 10px 0;
+    font-size: 12px;
+    color: var(--primary-light-color);
+}
+.job ul.tags {
+    display: flex;
+    padding: 7px 20px;
+    background-color: var(--primary-light-color);
+    gap: 10px;
+    border-radius: 0 0 1rem 1rem;
+}
+.job ul.tags li {
+    background-color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 50rem;
+    border: 2px solid var(--primary-color);
+    transition: 0.3s font-weight, 0.3s color, 0.3s background-color;
+    font-size: 12px;
+    cursor: pointer;
+}
+.job ul.tags li a {
+    color: var(--white-color);
+}
+.job ul.tags li:hover {
+    background-color: transparent;
+}
+.job ul.tags li:hover a {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+.tags ul {
+    display: flex;
+    gap: 10px;
+    flex-basis: 50%;
+    max-width: 50%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.tags ul:last-child {
+    justify-content: flex-end;
+}
+.inline-form button {
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--white-color);
+    font-size: 12px;
+    cursor: pointer;
+    font-family: var(--primary-font);
+    transition: 0.3s font-weight, 0.3s color, 0.3s background-color;
+}
+li.btn.delete {
+    background-color: #d30000 !important;
+    border: 2px solid #d30000 !important;
+}
+li.btn.edit {
+    background-color: #00724b !important;
+    border: 2px solid #00724b !important;
+}
+li.btn.archive {
+    background-color: #555555 !important;
+    border: 2px solid #555555 !important;
+}
+li.btn.delete:hover {
+    background-color: transparent !important;
+    border: 2px solid #d30000 !important;
+}
+li.btn.edit:hover {
+    background-color: transparent !important;
+    border: 2px solid #00724b !important;
+}
+li.btn.archive:hover {
+    background-color: transparent !important;
+    border: 2px solid #555555 !important;
+}
+li.btn.delete:hover button {
+    color: #d30000 !important;
+}
+li.btn.edit:hover button {
+    color: #00724b !important;
+}
+li.btn.archive:hover button {
+    color: #555555 !important;
+}
+.job ul.tags li:hover button {
+    font-weight: bold;
+}
