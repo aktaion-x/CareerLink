@@ -32,22 +32,26 @@
     font-weight: 700;
     cursor: default;
 }
-.sidebar form {
-    width: unset;
-    margin: 15px auto;
+.sidebar .posts-statistics {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--section-color);
+    padding: 10px;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top: 10px;
 }
-.sidebar form .btn {
-    margin: 10px 0;
-}
-.btn button i {
-    color: var(--white-color);
-    transition: 0.3s color;
+.sidebar > div {
+    font-weight: 700;
+    cursor: default;
 }
 
-.btn:hover button i {
-    color: var(--primary-color);
+.sidebar div span {
+    font-weight: normal;
+    font-size: 14px;
 }
-
 .content {
     width: 80vw;
 }
@@ -78,7 +82,6 @@
 .jobs {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     margin: 50px 0 0 50px;
 }
 .job {
@@ -99,11 +102,6 @@
 .job .job-holder:hover {
     box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 1px 0px;
 }
-.job .img {
-    width: 60px;
-    position: relative;
-    top: -15px;
-}
 .job .img img {
     width: 100%;
 }
@@ -113,19 +111,6 @@
 .job .title h4 {
     font-size: 20px;
     margin-bottom: 5px;
-}
-.job .company {
-    display: flex;
-    margin: 0 0 10px;
-    gap: 15px;
-    align-items: center;
-}
-.job .company span {
-    font-size: 14px;
-    color: var(--primary-mid-color);
-}
-.job .description span {
-    font-size: 14px;
 }
 .job .time {
     padding: 10px 0;
@@ -156,5 +141,88 @@
 }
 .job ul.tags li:hover a {
     color: var(--primary-color);
+    font-weight: bold;
+}
+.job .img {
+    width: 60px;
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+}
+.job .job-holder {
+    padding: 30px 20px 10px;
+    display: block;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 1px 0px;
+    position: relative;
+    transition: 0.3s box-shadow;
+    position: relative;
+}
+.inline-form button {
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--white-color);
+    font-size: 12px;
+    cursor: pointer;
+    font-family: var(--primary-font);
+    transition: 0.3s font-weight, 0.3s color, 0.3s background-color;
+}
+li.btn.delete {
+    background-color: #d30000 !important;
+    border: 2px solid #d30000 !important;
+}
+li.btn.edit {
+    background-color: #00724b !important;
+    border: 2px solid #00724b !important;
+}
+li.btn.archive {
+    background-color: #555555 !important;
+    border: 2px solid #555555 !important;
+}
+li.btn.activate {
+    background-color: #333333 !important;
+    border: 2px solid #333333 !important;
+}
+li.btn.view {
+    background-color: #311a29 !important;
+    border: 2px solid #311a29 !important;
+}
+li.btn.delete:hover {
+    background-color: transparent !important;
+    border: 2px solid #d30000 !important;
+}
+li.btn.edit:hover {
+    background-color: transparent !important;
+    border: 2px solid #00724b !important;
+}
+li.btn.archive:hover {
+    background-color: transparent !important;
+    border: 2px solid #555555 !important;
+}
+li.btn.activate:hover {
+    background-color: transparent !important;
+    border: 2px solid #333333 !important;
+}
+li.btn.view:hover {
+    background-color: transparent !important;
+    border: 2px solid #311a29 !important;
+}
+li.btn.delete:hover button {
+    color: #d30000 !important;
+}
+li.btn.edit:hover button {
+    color: #00724b !important;
+}
+li.btn.archive:hover button {
+    color: #555555 !important;
+}
+li.btn.activate:hover button {
+    color: #333333 !important;
+}
+li.btn.view:hover button {
+    color: #311a29 !important;
+}
+.job ul.tags li:hover button {
     font-weight: bold;
 }

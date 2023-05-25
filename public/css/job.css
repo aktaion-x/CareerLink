@@ -6,6 +6,7 @@
     border-bottom: 1px solid var(--primary-light-color);
     margin: 100px auto;
     max-width: 500px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px 1px;
 }
 .job .job-holder {
     padding: 0 20px;

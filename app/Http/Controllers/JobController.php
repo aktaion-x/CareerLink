@@ -14,4 +14,10 @@ class JobController extends Controller {
   public function show() {
     return view('jobs.show');
   }
+  public function manage() {
+    return view('jobs.manage');
+  }
+  public function edit() {
+    return view('jobs.edit');
+  }
 }

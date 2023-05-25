@@ -200,13 +200,20 @@ form:not(.inline-form) .btn {
 
 form:not(.inline-form) .btn button {
     font-size: 16px;
-    padding: 10px 14px;
+    padding: 10px 25px;
     font-weight: bold;
     border: 2px solid var(--primary-color);
     color: var(--white-color);
     background-color: var(--primary-color);
     border-radius: 50rem;
     cursor: pointer;
+}
+form:not(.inline-form) .logo-holder {
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px 10px 0;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 form:not(.inline-form) .btn button:hover {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,

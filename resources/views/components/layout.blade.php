@@ -34,12 +34,12 @@
         <li>
           <a href="/users/register">Get Started</a>
         </li>
-        {{-- <li>
+        <li>
           <a href="/jobs/manage">Manage Posts</a>
         </li>
         <li class="btn">
           <a href="/users/logout">Logout</a>
-        </li> --}}
+        </li>
       </ul>
     </div>
   </div>

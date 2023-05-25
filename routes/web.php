@@ -29,4 +29,8 @@ Route::get('/jobs', [JobController::class, 'index']);
 
 Route::get('/jobs/create', [JobController::class, 'create']);
 
+Route::get('/jobs/manage', [JobController::class, 'manage']);
+
+Route::get('/jobs/{job}/edit', [JobController::class, 'edit']);
+
 Route::get('/jobs/{job}', [JobController::class, 'show']);
