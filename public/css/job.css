@@ -21,9 +21,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100px;
+    height: 100px;
 }
 .job .img img {
     width: 100%;
+    border-radius: 50rem;
+    height: 100%;
+    object-fit: cover;
 }
 .job .title {
     margin-top: -25px;
@@ -109,7 +113,7 @@
 .tags ul:last-child {
     justify-content: flex-end;
 }
-.inline-form button {
+.tags .inline-form button {
     padding: 0;
     background: none;
     border: none;

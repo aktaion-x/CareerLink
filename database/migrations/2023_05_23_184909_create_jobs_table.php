@@ -20,6 +20,7 @@ return new class extends Migration {
       $table->string('description');
       $table->string('website')->nullable();
       $table->string('logo')->nullable();
+      $table->boolean('active')->default(true);
       $table->timestamps();
     });
   }

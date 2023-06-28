@@ -1,6 +1,6 @@
 <x-layout>
   <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-  <form action="/users/register" method="post">
+  <form action="/users/register" method="post" enctype="multipart/form-data">
     @csrf
     <div class="heading">
       <h1>Register</h1>
@@ -42,7 +42,7 @@
     </div>
     <div class="input-holder">
       <label for="thumbnail">Thumbnail:</label>
-      <input type="file" accept="image/*" name="thumbnail" value="{{ old('thumbnail') }}">
+      <input type="file" accept="image/*" name="img" value="{{ old('thumbnail') }}">
       @error('thumbnail')
         <p class="error">{{ $message }}</p>
       @enderror

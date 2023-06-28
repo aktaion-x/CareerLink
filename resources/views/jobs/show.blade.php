@@ -1,62 +1,72 @@
 <x-layout>
-  {{-- <link rel="stylesheet" href="/css/jobs.css"> --}}
   <link rel="stylesheet" href="/css/job.css">
   <div class="job">
     <div class="job-holder">
       <div class="img">
-        <img src="{{ asset('img/default-company.png') }}" alt="">
+        <img src="{{ $job->logo ? asset('storage/' . $job->logo) : asset('img/default-company.png') }}" alt="">
       </div>
       <div class="title">
-        <h4>Job Title</h4>
+        <h4>{{ $job->title }}</h4>
       </div>
       <div class="company">
-        <h4>Company Name</h4>
-        <span>Location, Amman</span>
+        <h4>{{ $job->company }}</h4>
+        <span>{{ $job->location }}</span>
       </div>
       <div class="contact">
-        <div class="email">Email: <span>jonduo@mail.com</span></div>
-        <div class="website">Website: <span>http://asd.com</span></div>
+        <div class="email">Email: <span>{{ $job->email }}</span></div>
+        <div class="website">Website: <span><a target="_blank" href="http://google.com">{{ $job->website }}</a></span>
+        </div>
       </div>
       <div class="description">
-        <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-          the
-          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-          into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-          release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-          software like Aldus PageMaker including versions of Lorem Ipsum.
-        </span>
+        <span>{{ $job->description }}</span>
       </div>
-      <div class="time">30+ days ago</div>
+      <div class="time">{{ $job->created_at }}</div>
 
     </div>
     <ul class="tags">
       <ul>
-        <li class="btn edit">
-          <form class="inline-form" action="/jobs/1" method="post">
-            @csrf
-            @method('PUT')
-            <button>Edit</button>
-          </form>
-        </li>
-        <li class="btn archive">
-          <form class="inline-form" action="/jobs/archive/1" method="post">
-            @csrf
-            <button>Archive</button>
-          </form>
-        </li>
+        @if (auth()->user())
+          @if (auth()->user()->id === $job->user_id)
+            <li class="btn edit">
+              <form class="inline-form" action="/jobs/edit/{{ $job->id }}" method="get">
+                @csrf
+                <button>Edit</button>
+              </form>
+            </li>
+          @endif
+        @endif
+        @if ($job->active == 1)
+          <li class="btn archive">
+            <form class="inline-form" action="/jobs/archive/{{ $job->id }}" method="post">
+              @csrf
+              @method('PUT')
+              <button>Archive</button>
+            </form>
+          </li>
+        @elseif ($job->active == 0)
+          <li class="btn active">
+            <form class="inline-form" action="/jobs/activate/{{ $job->id }}" method="post">
+              @csrf
+              @method('PUT')
+              <button>Activate</button>
+            </form>
+          </li>
+        @endif
         <li class="btn delete">
-          <form class="inline-form" action="/jobs/1" method="post">
+          <form class="inline-form" action="/jobs/{{ $job->id }}" method="post">
             @csrf
             @method('DELETE')
             <button>Delete</button>
           </form>
         </li>
       </ul>
+      @php
+        $tags = explode(',', $job->tags);
+      @endphp
       <ul>
-        <li class="btn"><a href="/jobs/{{ 'tag' }}">Tag</a></li>
-        <li class="btn"><a href="/jobs/{{ 'tag' }}">Tag</a></li>
-        <li class="btn"><a href="/jobs/{{ 'tag' }}">Tag</a></li>
+        @foreach ($tags as $tag)
+          <li class="btn"><a href="/jobs?tag={{ $tag }}">{{ $tag }}</a></li>
+        @endforeach
       </ul>
     </ul>
   </div>

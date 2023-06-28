@@ -1,6 +1,6 @@
 <x-layout>
   <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-  <form action="/users/register" method="post">
+  <form action="/jobs" method="post" enctype="multipart/form-data">
     @csrf
     <div class="heading">
       <h1>Post a Job</h1>

@@ -22,27 +22,72 @@
         </a>
       </div>
       <ul class="links">
+        @auth
+          <li>
+            <a href="/jobs/create">Post a Job</a>
+          </li>
+        @endauth
         <li>
-          <a href="/jobs/create">Post a Job</a>
+          <a href="/about">About</a>
         </li>
         <li>
           <a href="/jobs">Jobs</a>
         </li>
-        <li>
-          <a href="/users/login">Login</a>
-        </li>
-        <li>
-          <a href="/users/register">Get Started</a>
-        </li>
-        <li>
-          <a href="/jobs/manage">Manage Posts</a>
-        </li>
-        <li class="btn">
-          <a href="/users/logout">Logout</a>
-        </li>
+        @auth
+          <li>
+            <a href="/jobs/manage">Manage Posts</a>
+          </li>
+        @endauth
+        @auth
+          <li class="btn logout">
+            <form class="inline-form" action="/users/logout" method="post">
+              @csrf
+              <button>Logout</button>
+            </form>
+          </li>
+        @else
+          <li>
+            <a href="/users/login">Login</a>
+          </li>
+          <li>
+            <a href="/users/register">Get Started</a>
+          </li>
+        @endauth
+        <div id="dropdown-bars" class="dropdown-bars">
+          <i class="fa-solid fa-bars"></i>
+        </div>
       </ul>
+
     </div>
   </div>
+  <div id="links-box" class="links-box">
+    @auth
+      <li>
+        <a href="/jobs/create">Post a Job</a>
+      </li>
+    @endauth
+    <li>
+      <a href="/about">About</a>
+    </li>
+    <li>
+      <a href="/jobs">Jobs</a>
+    </li>
+    @auth
+      <li>
+        <a href="/jobs/manage">Manage Posts</a>
+      </li>
+    @endauth
+    @auth
+    @else
+      <li>
+        <a href="/users/login">Login</a>
+      </li>
+      <li>
+        <a href="/users/register">Get Started</a>
+      </li>
+    @endauth
+  </div>
+
   <main>
     {{ $slot }}
   </main>
@@ -51,6 +96,8 @@
       <p>Copyright &#169; Career Link</p>
     </div>
   </footer>
+  <x-flash-message />
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

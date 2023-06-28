@@ -19,18 +19,43 @@ Route::get('/', function () {
   return view('home');
 });
 
+Route::get('/about', function () {
+  return view('about');
+});
+
 Route::get('/users/register', [UserController::class, 'create'])
   ->middleware('guest');
 
 Route::get('/users/login', [UserController::class, 'login'])
+  ->name('login')
   ->middleware('guest');
+
+Route::post('/users/register', [UserController::class, 'store']);
+
+Route::post('/users/login', [UserController::class, 'authenticate']);
+
+Route::post('/users/logout', [UserController::class, 'logout'])
+  ->middleware('auth');
 
 Route::get('/jobs', [JobController::class, 'index']);
 
-Route::get('/jobs/create', [JobController::class, 'create']);
+Route::get('/jobs/create', [JobController::class, 'create'])
+  ->middleware('auth');
 
-Route::get('/jobs/manage', [JobController::class, 'manage']);
+Route::get('/jobs/manage', [JobController::class, 'manage'])
+  ->middleware('auth');
 
-Route::get('/jobs/{job}/edit', [JobController::class, 'edit']);
+Route::get('/jobs/edit/{job}', [JobController::class, 'edit'])
+  ->middleware('auth');
 
 Route::get('/jobs/{job}', [JobController::class, 'show']);
+
+Route::post('/jobs', [JobController::class, 'store']);
+
+Route::put('/jobs/{job}', [JobController::class, 'update']);
+
+Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
+
+Route::put('/jobs/activate/{job}', [JobController::class, 'activate']);
+
+Route::put('/jobs/archive/{job}', [JobController::class, 'archive']);

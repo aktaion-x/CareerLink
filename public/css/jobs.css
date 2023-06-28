@@ -15,9 +15,13 @@
 }
 .sidebar .img {
     width: 50px;
+    height: 50px;
 }
 .sidebar .img img {
     width: 100%;
+    border-radius: 50rem;
+    height: 100%;
+    object-fit: cover;
 }
 .sidebar .user {
     display: flex;
@@ -89,6 +93,17 @@
     border-bottom: 1px solid var(--primary-light-color);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px 1px;
 }
+@media (max-width: 767px) {
+    .jobs {
+        margin: 50px 0 0;
+    }
+    .job {
+        width: 95%;
+    }
+    .sidebar {
+        display: none;
+    }
+}
 .job .job-holder {
     padding: 0 20px;
     display: block;
@@ -103,9 +118,13 @@
     width: 60px;
     position: relative;
     top: -15px;
+    height: 60px;
 }
 .job .img img {
     width: 100%;
+    border-radius: 50rem;
+    height: 100%;
+    object-fit: cover;
 }
 .job .title {
     margin-top: -10px;

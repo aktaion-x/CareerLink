@@ -17,7 +17,7 @@
     background-color: rgba(255, 255, 255, 0.4);
     padding: 40px 30px;
     border-radius: 1rem;
-    margin-bottom: 40px;
+    margin: 0 20px 40px;
 }
 .home h1 {
     text-transform: uppercase;
@@ -32,6 +32,11 @@
     text-align: center;
     font-weight: 600;
     letter-spacing: 1px;
+}
+@media (max-width: 767px) {
+    .home p {
+        display: none;
+    }
 }
 .home a.btn {
     padding: 15px 20px;

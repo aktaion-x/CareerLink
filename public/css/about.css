@@ -1,0 +1,40 @@
+.about-page {
+    margin: 100px auto;
+    max-width: 1200px;
+    padding: 0 50px;
+}
+.about-page .header {
+    margin-bottom: 70px;
+}
+.about-page .header h1 {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 40px;
+}
+.about-page .header p {
+    font-size: 20px;
+}
+.about-page .purpose {
+    margin-bottom: 30px;
+}
+.about-page .purpose p {
+    color: #666;
+}
+.about-page .purpose h2,
+.about-page .technologies-used h2 {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 30px;
+}
+.about-page .technologies-used .technologies p {
+    color: #666;
+}
+.about-page .technologies-used .technologies ul {
+    margin: 12px 15px;
+    list-style: disc;
+}
+.about-page .technologies-used .technologies ul li {
+    margin-bottom: 5px;
+}
+.about-page .technologies-used .technologies p.conclusion {
+}

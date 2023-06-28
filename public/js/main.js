@@ -15,3 +15,8 @@ function checkOverflow(array, numberOfLetters) {
         }
     });
 }
+// console.log("asd");
+document.getElementById("dropdown-bars").addEventListener("click", () => {
+    console.log("asd");
+    document.getElementById("links-box").classList.toggle("active");
+});
