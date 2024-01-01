@@ -25,5 +25,8 @@
     <div class="suggestions">
       <a href="/users/register">Don't have an account? Register</a>
     </div>
+    <h3>Login using the test user?</h3>
+    <h4>email: <code>test@user.com</code></h4>
+    <h4>password: <code>P@ssw0rd</code></h4>
   </form>
 </x-layout>

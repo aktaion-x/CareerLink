@@ -35,30 +35,32 @@
             </li>
           @endif
         @endif
-        @if ($job->active == 1)
-          <li class="btn archive">
+        @if (auth()->user() && auth()->user()->id === $job->user_id)
+            @if ($job->active == 1)
+            <li class="btn archive">
             <form class="inline-form" action="/jobs/archive/{{ $job->id }}" method="post">
-              @csrf
-              @method('PUT')
-              <button>Archive</button>
+                @csrf
+                @method('PUT')
+                <button>Archive</button>
             </form>
-          </li>
-        @elseif ($job->active == 0)
-          <li class="btn active">
-            <form class="inline-form" action="/jobs/activate/{{ $job->id }}" method="post">
-              @csrf
-              @method('PUT')
-              <button>Activate</button>
-            </form>
-          </li>
+            </li>
+            @elseif ($job->active == 0)
+                <li class="btn active">
+                <form class="inline-form" action="/jobs/activate/{{ $job->id }}" method="post">
+                    @csrf
+                    @method('PUT')
+                    <button>Activate</button>
+                </form>
+                </li>
+            @endif
+            <li class="btn delete">
+              <form class="inline-form" action="/jobs/{{ $job->id }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button>Delete</button>
+              </form>
+            </li>
         @endif
-        <li class="btn delete">
-          <form class="inline-form" action="/jobs/{{ $job->id }}" method="post">
-            @csrf
-            @method('DELETE')
-            <button>Delete</button>
-          </form>
-        </li>
       </ul>
       @php
         $tags = explode(',', $job->tags);
